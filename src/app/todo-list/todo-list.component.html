@@ -1,0 +1,35 @@
+<div class="container center_div border border-primary">
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th></th>
+        <th>Title</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of allTodos">
+        <td>
+          <div class="btn-group-sm">
+            <button class="primary btn-danger btn-block" (click)="delete(product)">X</button>
+          </div>
+        </td>
+        <td>{{product.payload.doc.data().title}}</td>
+        <td>{{product.payload.doc.data().summary}}</td>
+        
+        
+      </tr>
+    </tbody>
+  </table>
+</div>
+  <!--
+    Klasik bir Grid tasarımı söz konusu.
+    *ngFor ile bileşenin init metodunda doldurulan allProducts dizisini dönüyoruz.
+    Firestore'dan gelen her bir dokümanın elemanlarına ulaşmak için,
+    payload.doc.data().[özellik adı] notasyonunu kullandık.
+   
+    Sil başlıklı button'a basıldığında bileşendeki delete metodunu çağrılmış oluyor.
+   
+    Checkbox kontrolünün click olayında bileşendeki güncelleme metodunu ve dolayısıyla
+    servis tarafındaki versiyonunu çağırmış oluyoruz.
+  -->
